@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const radAngle = angle * (Math.PI / 180);
 
         // 2. Transform gravity to the square's local coordinate system
-        const gravityX = Math.sin(radAngle) * gravity;
-        const gravityY = Math.cos(radAngle) * gravity;
+        // The world gravity vector (0, -g) is transformed into the square's rotating frame.
+        const gravityX = -gravity * Math.sin(radAngle);
+        const gravityY = -gravity * Math.cos(radAngle);
 
         // 3. Apply gravity to velocity
         vel.x += gravityX * deltaTime;
