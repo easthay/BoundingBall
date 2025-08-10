@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container {
+    perspective: 1000px;
+}
+
+#square {
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateSquare 20s linear infinite;
+}
+
+#ball {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    /* Position will be set by JavaScript */
+}
+
+@keyframes rotateSquare {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
